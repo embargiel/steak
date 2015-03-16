@@ -194,6 +194,11 @@ A couple more notes from me:
   - I suck at markdown and documentations.
   - I am aware that this is all probably a little chaotic. I would love to make it simple and understandable.
 
+Thoughts about implementation:
+  - Steak.Model depends on repository and it was probably a bad idea. Instead all communication should go through repository classes.
+  - Translating raw data to Steak.Model objects happens in Steak.Model class. There should probably be a mapper object between them, responsible for mapping. This is probably also a way to go to support various data formats coming from server. Someone might not want root keys in their jsons.
+  - There should probably be a Steak.Repository generic class, handling most of the job for you.
+
 All of this code is barely extracted from my project and assumes a lot, because only I was using this solution. It can be much more flexible with few changes, if anyone agrees with the general idea, the codebase should be pretty easy to update. And I would love to work on the codebase and improve it if it would make anyones life easier.
 
 To run the tests simply open the test.html file.
